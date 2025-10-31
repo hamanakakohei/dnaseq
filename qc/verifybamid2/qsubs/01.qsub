@@ -1,0 +1,33 @@
+#!/bin/bash
+#$ -S /bin/bash
+#$ -N verifybamid2
+#$ -cwd
+#$ -q aaa.q
+#$ -pe OpenMP 4
+#$ -l s_vmem=8G
+#$ -o logs/01/$TASK_ID.log
+#$ -e logs/01/$TASK_ID.log
+
+set -euo pipefail
+
+
+# 固定の引数
+# dockerに与えるので絶対パスにする
+SAMPLE_CRAM_LIST=$(readlink -f inputs/sample_cram.txt)
+REF=$(readlink -f ref/Homo_sapiens_assembly38.fasta)
+SVD_PREFIX=$(readlink -f ref/resource/1000g.phase3.100k.b38.vcf.gz.dat)
+
+
+# サンプル名とcramパスを得る
+read SAMPLE CRAM < <(sed -n "${SGE_TASK_ID}p" "$SAMPLE_CRAM_LIST")
+
+
+# 実行
+mkdir -p logs
+
+./scripts/02.sh \
+  --sample $SAMPLE \
+  --bam $CRAM \
+  --ref $REF \
+  --svd_prefix $SVD_PREFIX \
+  --threads $NSLOTS
