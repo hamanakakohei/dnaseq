@@ -24,7 +24,6 @@ docker run \
   -v /your_root_dir1:/your_root_dir1 \
   -v /your_root_dir2:/your_root_dir2 \
   -v `pwd`:`pwd` \
-  -w `pwd`/results/01/$SAMPLE \
   griffan/verifybamid2:latest \
   VerifyBamID \
     --Reference $REF \
