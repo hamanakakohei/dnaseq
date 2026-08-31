@@ -21,8 +21,8 @@ mkdir -p results/01/$SAMPLE
 docker run \
   -u $(id -u):$(id -g) \
   --rm \
-  -v /antares01:/antares01 \
-  -v /betelgeuse10:/betelgeuse10 \
+  -v /your_root_dir1:/your_root_dir1 \
+  -v /your_root_dir2:/your_root_dir2 \
   -v `pwd`:`pwd` \
   -w `pwd`/results/01/$SAMPLE \
   griffan/verifybamid2:latest \
