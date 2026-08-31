@@ -1,4 +1,15 @@
 #!/bin/bash
+# 1: ログの行数
+# 2: ログのファイルサイズ
+# 3: ログにERROR, Error, errorが含まれていないか
+# 4: 出力結果のサンプルディレクトリ数
+# 5: サンプル毎の出力結果ファイル数
+# 6: out.txtが何個あるか
+# 7: result.Ancestryが何個あるか
+# 8: result.selfSMが何個あるか
+# 9: out.txtのファイルサイズ
+# 10: result.Ancestryのファイルサイズ
+# 11: result.selfSMのファイルサイズ
 set -euo pipefail
 
 OUT_DIR=results/01_qc/
