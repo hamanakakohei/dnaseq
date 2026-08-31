@@ -1,4 +1,8 @@
 #!/bin/bash
+# 以下のステップをまとめて一気にするのではなく、一つずつ実行して結果を見て次に進んで下さい：
+# 1: sample - cramPathの対応表をインプットにしてverifybamid2して
+# 1_qc: 問題ないかqcして
+# 2: 全サンプルの結果をまとめる
 set -euo pipefail
 
 
